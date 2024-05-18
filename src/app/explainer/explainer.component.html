@@ -1,0 +1,67 @@
+<h1 class="retro-h1" id="random-activity-application">Activity app</h1>
+
+<h2>What you need to build</h2>
+
+<p>
+  Using the API documented
+  <a href="https://www.boredapi.com/documentation" target="noopener"
+    >at this link</a
+  >
+  build an application that displays random activities for the day.
+</p>
+
+<p>You can use any library you want for this task.</p>
+
+<p>Good UI design is a plus</p>
+
+<p>
+  <b>Good artifacts design & structuring is a <u>big</u> plus</b>
+</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<h3>Must have</h3>
+
+<ul>
+  <li>
+    Display a single button labeled "Fetch activity" that fetches a random
+    activity from the API and adds it to a list. The list starts empty. Display
+    a skeleton state when a fetch is in progress. Design is up to you.
+  </li>
+  <li>
+    The list must be automatically organized by activity category (use the
+    <code>type</code> property on the fetched activity). Each activity on the
+    list should display only the main title, and display additional fetched
+    details when selected by the user
+  </li>
+  <li>
+    If the same activity is randomly fetched more than once, automatically
+    discard it and fetch a new one
+  </li>
+  <li>
+    The user can mark each activity as <em>“done”</em> by clicking on it
+    (clicking again removes the mark). <em>“done”</em> activities should be
+    visually distinct from non-done ones. Design the UI accordingly
+    <br />
+    <br />
+    <i>🔑 Hint: a checkmark, a different color...</i>
+  </li>
+</ul>
+
+<h3 class="spaced-top">Would be nice to have</h3>
+
+<ul class="orange">
+  <li>
+    Display a counter on the top of the page that informs the user of how many
+    activities are marked as done
+  </li>
+  <li>
+    Display activities in a grid for large displays, and in a single centered
+    column for small ones.
+  </li>
+</ul>
+
+<h3 class="spaced-top">Bonus</h3>
+<ul class="blue">
+  <li>Using animations to transition activities state is a plus.</li>
+</ul>

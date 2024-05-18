@@ -1,0 +1,56 @@
+<div class="task-list-container">
+  <div class="page-container">
+    <div class="title">{{appInfo.TITLE}}</div>
+    <!-- action container -->
+    <div class="action-container">
+      <div class="button-container">
+        <button class="button-activity" role="button" (click)="fetchActivity()">{{appInfo.FETCH_BTN}}</button>
+      </div>
+      <div class="items-selected" *ngIf="dataGrid?.instance?.getSelectedRowsData()">
+        <span class="label">{{appInfo.ITEM_DONE}}</span>
+        <span>{{ dataGrid.instance.getSelectedRowsData().length }}</span>
+      </div>
+    </div>
+    <!-- status animated message -->
+    <div *ngIf="appState.animation===animationClass.ACTIVE" class="message-state" [@bounce]="appState.animation">+1</div>
+    <!-- grid container section -->
+    <div class="grid-container" *ngIf="activitySource?.length">
+      <dx-data-grid id="activity-grid" [dataSource]="activitySource" [keyExpr]="'key'"
+        (onContentReady)="handleContentReady($event)" [width]="'100%'" (onRowClick)="selectRow($event)"
+        [showBorders]="true">
+        <dxo-scrolling rowRenderingMode="virtual"> </dxo-scrolling>
+        <dxo-paging [pageSize]="10"> </dxo-paging>
+        <dxo-pager [visible]="true" [displayMode]="'compact'" [showNavigationButtons]="true">
+        </dxo-pager>
+        <dxo-selection selectAllMode="allPages" showNavigationButtons="true" showCheckBoxesMode="always"
+          mode="multiple">
+        </dxo-selection>
+        <dxo-scrolling rowRenderingMode="virtual" columnRenderingMode="virtual"></dxo-scrolling>
+        <dxi-column *ngFor="let column of taskColumns" [caption]="column.label" [dataField]="column.dataField" [allowSorting]="false"
+          [width]="column.width" [groupIndex]="column.groupIndex" [dataType]="column.dataType">
+        </dxi-column>
+        <dxo-paging [pageSize]="10"></dxo-paging>
+        <dxo-grouping #expand [autoExpandAll]="true"></dxo-grouping>
+      </dx-data-grid>
+      <div class="options">
+        <div class="option">
+          <dx-check-box id="autoExpand" [(value)]="expand.autoExpandAll" text="Expand All Groups">
+          </dx-check-box>
+        </div>
+      </div>
+      <!-- loader -->
+      <div class="loader" *ngIf="appState.isLoading">
+        <dx-load-indicator id="loader-indicator" height="40" width="40"></dx-load-indicator>
+      </div>
+      <!-- popup -->
+      <dx-popup [(visible)]="popupVisible" [showTitle]="false" width="auto" [showCloseButton]="false"
+        [closeOnOutsideClick]="true" height="auto">
+        <div class="popup-item-info" *ngIf="activity">
+          <div class="item-info" *ngFor="let key of getObjectKeys(activity)">
+            <b>{{ key }}:</b> {{ getActivityInfo(key) }}
+          </div>
+        </div>
+      </dx-popup>
+    </div>
+  </div>
+</div>

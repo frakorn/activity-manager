@@ -1,0 +1,111 @@
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(16, 16, 16, 0.3);
+}
+
+#loader-indicator {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+}
+
+.label {
+  color: #39739d;
+  text-shadow: 1px 1px 2px #ccc;
+}
+
+.page-container {
+  margin: 15px;
+}
+
+.task-list-container {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+      rgba(255, 255, 255, 1) 0%,
+      rgba(251, 251, 251, 0.1) 100%
+    ),
+    linear-gradient(90deg, #b2daf2, #ded8e5);
+}
+
+#activity-grid {
+  max-width: none;
+}
+
+.message-state {
+  color: red;
+  font-weight: bold;
+  position: fixed;
+  left: 95%;
+  text-shadow: 1px 1px 2px #ccc;
+}
+
+.items-selected {
+  text-align: right;
+}
+
+.action-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-activity {
+  background-color: #e1ecf4;
+  border-radius: 3px;
+  border: 1px solid #7aa7c7;
+  box-shadow: rgba(255, 255, 255, 0.7) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #39739d;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, 'Segoe UI', 'Liberation Sans',
+    sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px 0.8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.button-activity:hover,
+.button-activity:focus {
+  background-color: #b3d3ea;
+  color: #2c5777;
+}
+
+.button-activity:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+
+.button-activity:active {
+  background-color: #a0c7e4;
+  box-shadow: none;
+  color: #2c5777;
+}
+
+.title {
+  text-align: center;
+  font-weight: normal;
+  font-family: fantasy;
+  font-size: x-large;
+  color: #39739d;
+  margin: 10px;
+  text-shadow: 1px 1px 2px #ccc;
+}
