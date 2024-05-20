@@ -46,7 +46,6 @@ import { trigger, transition, style, animate, sequence, state } from '@angular/a
   ]
 })
 export class TaskListComponent {
-  activities: Activity[] = [];
   activitySource: Activity[] = [];
   taskColumns: ITaskColumns[] = [];
   activity!: Activity;
@@ -169,7 +168,8 @@ export class TaskListComponent {
   }
 
   selectRow(row: any) {
-    this.fetchActivityDetail(row?.data?.key);
+    if(row.rowType==='data')
+      this.fetchActivityDetail(row?.data?.key);
   }
 
   hasActivity(res: Activity) {
